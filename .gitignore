@@ -1,7 +1,6 @@
 # Ignore the Data folder
-Data/
 Data/2022-citibike-tripdata/
-Data/df_temps.csv
+Data/merged_citibike_weather
 
 # Ignore Python virtual environments
 venv/
