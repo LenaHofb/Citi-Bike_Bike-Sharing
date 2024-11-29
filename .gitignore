@@ -3,9 +3,7 @@ Data/*
 
 # Do not ignore df_temps.csv in the Data folder
 !Data/df_temps.csv
-
-# Specifically exclude merged_citibike_weather.csv
-Data/merged_citibike_weather.csv
+!Data/merged_weather_trips.csv
 
 # Ignore Python virtual environments
 venv/
