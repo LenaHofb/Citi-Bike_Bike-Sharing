@@ -33,6 +33,11 @@ else:
     df_trips_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\merged_weather_trips.csv"
     top20_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\top20_stations.csv"
 
+# Log paths for debugging
+print(f"Using df_path: {df_path}")
+print(f"Using df_trips_path: {df_trips_path}")
+print(f"Using top20_path: {top20_path}")
+
 # Load datasets
 df = pd.read_csv(df_path, index_col=None)
 df_trips = pd.read_csv(df_trips_path, index_col=None)
