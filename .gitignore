@@ -1,14 +1,5 @@
-# Ignore Data folder
-Data
-
-# Ignore Original Data folder (if you don’t want to track it)
-Data/Original Data/
-
-# But do not ignore files in the Prepared Data folder
-!Data/Prepared Data/
-!Data/Prepared Data/merged_weather_trips.csv
-!Data/Prepared Data/top20_stations.csv
-!Data/Prepared Data/reduced_sample_dataset.csv
+# Ignore the Data folder and its contents
+Data/*
 
 # Ignore Python virtual environments
 venv/
@@ -16,10 +7,6 @@ venv/
 # Ignore compiled Python files
 *.pyc
 __pycache__/
-
-# Ignore Jupyter notebook checkpoints
-.ipynb_checkpoints/
-
 
 
 
