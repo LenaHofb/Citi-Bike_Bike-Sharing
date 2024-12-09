@@ -17,26 +17,27 @@ from numerize import numerize
 ########################## Import Data ###########################################################################################
 
 import os
+import pandas as pd
 
-# Check if the app is running in Streamlit Cloud
+# Check if running in Streamlit Cloud
 IS_DEPLOYED = "STREAMLIT_SERVER_PORT" in os.environ
 
 if IS_DEPLOYED:
-    # Use relative paths for deployment
+    # Relative paths for deployment (Streamlit Cloud)
     df_path = "Prepared Data/reduced_sample_dataset.csv"
     df_trips_path = "Prepared Data/merged_weather_trips.csv"
     top20_path = "Prepared Data/top20_stations.csv"
 else:
-    # Use absolute paths for local development
-    base_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing"
-    df_path = os.path.join(base_path, "Prepared Data/reduced_sample_dataset.csv")
-    df_trips_path = os.path.join(base_path, "Prepared Data/merged_weather_trips.csv")
-    top20_path = os.path.join(base_path, "Prepared Data/top20_stations.csv")
+    # Absolute paths for local development
+    df_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\reduced_sample_dataset.csv"
+    df_trips_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\merged_weather_trips.csv"
+    top20_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\top20_stations.csv"
 
 # Load datasets
 df = pd.read_csv(df_path, index_col=None)
 df_trips = pd.read_csv(df_trips_path, index_col=None)
 top20 = pd.read_csv(top20_path, index_col=None)
+
 
 ########################### Initial settings for the dashboard ##################################################################
 
