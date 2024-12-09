@@ -1,9 +1,0 @@
-streamlit
-pandas
-numpy
-plotly==5.15.0
-matplotlib
-streamlit-keplergl
-keplergl
-pillow
-numerize
