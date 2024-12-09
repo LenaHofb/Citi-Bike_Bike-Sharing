@@ -1,12 +1,16 @@
 # Ignore the Data folder and its contents
 /Data/
 
+# Track Prepared Data explicitly (override ignore for specific folder)
+!/Prepared Data/
+
 # Ignore Python virtual environments
 venv/
 
 # Ignore compiled Python files
 *.pyc
 __pycache__/
+
 
 
 
