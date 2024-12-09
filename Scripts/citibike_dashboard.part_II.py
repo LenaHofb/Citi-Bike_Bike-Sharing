@@ -18,7 +18,7 @@ from numerize import numerize
 ########################## Import Data ###########################################################################################
 
 # Load datasets
-df = pd.read_csv(r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Data\Prepared Data\reduced_sample_dataset.csv", index_col=None)
+df = pd.read_csv("Data/Prepared Data/reduced_sample_dataset.csv", index_col=None)
 
 df_trips = pd.read_csv(r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Data\Prepared Data\merged_weather_trips.csv", index_col=None)
 

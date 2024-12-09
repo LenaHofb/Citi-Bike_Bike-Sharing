@@ -8,6 +8,7 @@ Data/Original Data/
 !Data/Prepared Data/
 !Data/Prepared Data/merged_weather_trips.csv
 !Data/Prepared Data/top20_stations.csv
+!Data/Prepared Data/reduced_sample_dataset.csv
 
 # Ignore Python virtual environments
 venv/
