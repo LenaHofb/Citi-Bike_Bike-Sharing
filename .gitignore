@@ -1,5 +1,5 @@
 # Ignore the Data folder and its contents
-Data/*
+/Data/
 
 # Ignore Python virtual environments
 venv/
