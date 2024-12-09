@@ -6,3 +6,4 @@ matplotlib
 streamlit-keplergl
 keplergl
 pillow
+numerize
