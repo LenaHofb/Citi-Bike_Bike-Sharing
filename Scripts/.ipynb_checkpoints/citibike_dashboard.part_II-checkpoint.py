@@ -18,7 +18,11 @@ from numerize import numerize
 ########################## Import Data ###########################################################################################
 
 # Load datasets
-df = pd.read_csv(r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\reduced_sample_dataset.csv", index_col=None)
+df = pd.read_csv("Prepared Data\reduced_sample_dataset.csv", index_col=None)
+
+df_trips = pd.read_csv("Prepared Data/merged_weather_trips.csv", index_col=None)
+
+top20 = pd.read_csv("Prepared Data\top20_stations.csv", index_col=None)
 
 ########################### Initial settings for the dashboard ##################################################################
 
