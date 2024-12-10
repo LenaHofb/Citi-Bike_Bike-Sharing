@@ -43,14 +43,6 @@ df = pd.read_csv(df_path, index_col=None)
 df_trips = pd.read_csv(df_trips_path, index_col=None)
 top20 = pd.read_csv(top20_path, index_col=None)
 
-print("Current Working Directory:", os.getcwd())
-
-# Walk through all directories and files
-for root, dirs, files in os.walk("."):
-    print("Root:", root)
-    print("Dirs:", dirs)
-    print("Files:", files)
-
 ########################### Initial settings for the dashboard ##################################################################
 
 # Set page configuration for wide mode
