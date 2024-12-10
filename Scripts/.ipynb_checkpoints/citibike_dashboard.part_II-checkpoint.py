@@ -7,17 +7,12 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import base64
-from streamlit_keplergl import keplergl_static
-from keplergl import KeplerGl
 from datetime import datetime as dt
 from PIL import Image
 from numerize import numerize
-
+import os
 
 ########################## Import Data ###########################################################################################
-
-import os
-import pandas as pd
 
 # Check if running in Streamlit Cloud
 IS_DEPLOYED = "STREAMLIT_SERVER_PORT" in os.environ
@@ -75,7 +70,7 @@ if page == "Intro Page":
     - Stations being full, making it difficult to return bikes.
 
     This dashboard delves into the potential reasons behind these issues and offers insights to support service improvements.
-    The dashboard is divided into 5 sections to explore these aspects:
+    The dashboard is divided into 4 sections to explore these aspects:
     """)
 
     # Load and display an image
@@ -158,7 +153,7 @@ elif page == "Most Popular Stations":
     st.markdown("""
     ### Insights:
     - The most popular station is **W 21 St & 6 Ave**, with over 120,000 trips.
-    - Other highly popular stations include **West St & Chambers St** and **Broadway & E 22 St**.
+    - Other highly popular stations include **West St & Chambers St** and **Broadway & W 58 St**.
     - The top 20 stations account for a significant share of the overall bike usage, indicating concentrated demand.
     - Proper resource allocation to these hotspots is essential to reduce shortages and ensure user satisfaction.
     """)
@@ -184,10 +179,25 @@ elif page == "New York Map with Aggregated Bike Trips":
     st.markdown("""
     This page showcases a map of Citi Bike trips across New York City, highlighting popular routes, start stations, and end stations.
     """)
-    map_image_path = "citibike_map.png"
-    st.image(map_image_path, caption="Citi Bike Trips Map", width=1200)
     
-    # Add Insights Section
+    import base64
+
+    map_image_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\citibike_map.jpg"
+    
+    # Encode the image as Base64
+    with open(map_image_path, "rb") as image_file:
+        encoded_image = base64.b64encode(image_file.read()).decode()
+    
+    # Use HTML to render the image
+    st.markdown(
+        f"""
+        <div style="text-align: center;">
+            <img src="data:image/jpeg;base64,{encoded_image}" alt="Citi Bike Trips Map" style="width: 1200px;"/>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    
     st.markdown("""
     ### Insights from the Map:
     - **High Activity in Manhattan**: The map shows a dense concentration of trips in and around Manhattan, particularly near key hubs like Midtown and Lower Manhattan.
@@ -198,8 +208,8 @@ elif page == "New York Map with Aggregated Bike Trips":
         - While Manhattan dominates usage, there is notable activity extending into Jersey City and parts of Brooklyn.
     """)
 
-# RECOMMENDATIONS Page
-if page == "Recommendations":
+# RECOMMENDATIONS PAGE
+elif page == "Recommendations":
     st.markdown(
         """
         <div style="text-align: center;">
@@ -213,6 +223,7 @@ if page == "Recommendations":
         """,
         unsafe_allow_html=True
     )
+
 
     ## Section 1: Address Seasonal Demand Variations
     st.markdown("### Address Seasonal Demand Variations")
@@ -279,4 +290,3 @@ if page == "Recommendations":
         enhance user satisfaction, and streamline operations for future growth. 🚲
     </div>
     """, unsafe_allow_html=True)
-
