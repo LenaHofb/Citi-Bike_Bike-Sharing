@@ -24,14 +24,14 @@ IS_DEPLOYED = "STREAMLIT_SERVER_PORT" in os.environ
 
 if IS_DEPLOYED:
     # Relative paths for deployment (Streamlit Cloud)
-    df_path = "Prepared Data/reduced_sample_dataset.csv"
-    df_trips_path = "Prepared Data/merged_weather_trips.csv"
-    top20_path = "Prepared Data/top20_stations.csv"
+    df_path = "reduced_sample_dataset.csv"
+    df_trips_path = "merged_weather_trips.csv"
+    top20_path = "top20_stations.csv"
 else:
     # Absolute paths for local development
-    df_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\reduced_sample_dataset.csv"
-    df_trips_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\merged_weather_trips.csv"
-    top20_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\top20_stations.csv"
+    df_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Scripts\reduced_sample_dataset.csv"
+    df_trips_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Scripts\merged_weather_trips.csv"
+    top20_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Scripts\top20_stations.csv"
 
 # Log paths for debugging
 print(f"Using df_path: {df_path}")
@@ -43,6 +43,13 @@ df = pd.read_csv(df_path, index_col=None)
 df_trips = pd.read_csv(df_trips_path, index_col=None)
 top20 = pd.read_csv(top20_path, index_col=None)
 
+print("Current Working Directory:", os.getcwd())
+
+# Walk through all directories and files
+for root, dirs, files in os.walk("."):
+    print("Root:", root)
+    print("Dirs:", dirs)
+    print("Files:", files)
 
 ########################### Initial settings for the dashboard ##################################################################
 
@@ -281,14 +288,3 @@ if page == "Recommendations":
     </div>
     """, unsafe_allow_html=True)
 
-
-########################################################################################
-import os
-
-# Print the current working directory
-st.write("Current Working Directory:", os.getcwd())
-
-# Print the list of files in the current directory and subdirectories
-for root, dirs, files in os.walk("."):
-    for name in files:
-        st.write("File Found:", os.path.join(root, name))
