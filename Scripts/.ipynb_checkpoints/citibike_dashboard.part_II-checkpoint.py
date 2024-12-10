@@ -14,15 +14,35 @@ from PIL import Image
 from numerize import numerize
 
 
-
 ########################## Import Data ###########################################################################################
 
+import os
+import pandas as pd
+
+# Check if running in Streamlit Cloud
+IS_DEPLOYED = "STREAMLIT_SERVER_PORT" in os.environ
+
+if IS_DEPLOYED:
+    # Relative paths for deployment (Streamlit Cloud)
+    df_path = "Prepared Data/reduced_sample_dataset.csv"
+    df_trips_path = "Prepared Data/merged_weather_trips.csv"
+    top20_path = "Prepared Data/top20_stations.csv"
+else:
+    # Absolute paths for local development
+    df_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\reduced_sample_dataset.csv"
+    df_trips_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\merged_weather_trips.csv"
+    top20_path = r"C:\Users\north\OneDrive\Dokumente\Career Foundry\Data Visualization 2\Citi-Bike_Bike-Sharing\Prepared Data\top20_stations.csv"
+
+# Log paths for debugging
+print(f"Using df_path: {df_path}")
+print(f"Using df_trips_path: {df_trips_path}")
+print(f"Using top20_path: {top20_path}")
+
 # Load datasets
-df = pd.read_csv("Prepared Data\reduced_sample_dataset.csv", index_col=None)
+df = pd.read_csv(df_path, index_col=None)
+df_trips = pd.read_csv(df_trips_path, index_col=None)
+top20 = pd.read_csv(top20_path, index_col=None)
 
-df_trips = pd.read_csv("Prepared Data/merged_weather_trips.csv", index_col=None)
-
-top20 = pd.read_csv("Prepared Data\top20_stations.csv", index_col=None)
 
 ########################### Initial settings for the dashboard ##################################################################
 
@@ -262,3 +282,13 @@ if page == "Recommendations":
     """, unsafe_allow_html=True)
 
 
+########################################################################################
+import os
+
+# Print the current working directory
+st.write("Current Working Directory:", os.getcwd())
+
+# Print the list of files in the current directory and subdirectories
+for root, dirs, files in os.walk("."):
+    for name in files:
+        st.write("File Found:", os.path.join(root, name))

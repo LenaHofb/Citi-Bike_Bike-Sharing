@@ -282,3 +282,13 @@ if page == "Recommendations":
     """, unsafe_allow_html=True)
 
 
+########################################################################################
+import os
+
+# Print the current working directory
+st.write("Current Working Directory:", os.getcwd())
+
+# Print the list of files in the current directory and subdirectories
+for root, dirs, files in os.walk("."):
+    for name in files:
+        st.write("File Found:", os.path.join(root, name))
